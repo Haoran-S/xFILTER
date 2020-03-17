@@ -24,9 +24,9 @@ Opt_NEXT = zeros(iter_num-1,repeat_num);
 
 %% Data
 features = randn(n,K);
-labels= randi([1,2], 1, K); labels(labels==2) = -1; % labels \in {-1,1}
+labels   = randi([1,2], 1, K); labels(labels==2) = -1; % labels \in {-1,1}
 features_norm = features/norm(features,'fro');
-big_L=1/(batch_size)*norm(features_norm,'fro')^2+2*function_lambda*function_aalpha*n;
+big_L    = norm(features_norm,'fro')^2+2*function_lambda*function_aalpha*n;
 
 %% Algorithms
 for repeat_index = 1 : repeat_num
