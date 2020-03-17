@@ -7,7 +7,7 @@ batch_size = 200;   % batch size
 nodes_num  = 20;   % number of agents in the network
 K          = batch_size * nodes_num; % number of data points
 repeat_num = 1;    % number of trials
-iter_num   = 10000; % number of iterations per trial
+iter_num   = 1000; % number of iterations per trial
 radius     = 0.5;
 
 gc = @(x,lambda,alpha,z,y,bs, M) 1/(bs*M)*(-y * z)/(1+exp(y*x.'*z))+1/(M)*((2*lambda*alpha*x)./((1+alpha*x.^2).^2)); % gradient
@@ -26,7 +26,7 @@ Opt_NEXT = zeros(iter_num-1,repeat_num);
 features = randn(n,K);
 labels   = randi([1,2], 1, K); labels(labels==2) = -1; % labels \in {-1,1}
 features_norm = features/norm(features,'fro');
-big_L    = norm(features_norm,'fro')^2+2*function_lambda*function_aalpha*n;
+big_L    = 1/(batch_size)*norm(features_norm,'fro')^2+2*function_lambda*function_aalpha*n;
 
 %% Algorithms
 for repeat_index = 1 : repeat_num
