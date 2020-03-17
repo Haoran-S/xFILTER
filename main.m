@@ -3,11 +3,11 @@ tic
 rng('default')
 %% Parameters
 n          = 10;   % problem dimention
-batch_size = 10;   % batch size
-nodes_num  = 10;   % number of agents in the network
+batch_size = 200;   % batch size
+nodes_num  = 20;   % number of agents in the network
 K          = batch_size * nodes_num; % number of data points
 repeat_num = 1;    % number of trials
-iter_num   = 5000; % number of iterations per trial
+iter_num   = 10000; % number of iterations per trial
 radius     = 0.5;
 
 gc = @(x,lambda,alpha,z,y,bs, M) 1/(bs*M)*(-y * z)/(1+exp(y*x.'*z))+1/(M)*((2*lambda*alpha*x)./((1+alpha*x.^2).^2)); % gradient
