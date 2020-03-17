@@ -2,7 +2,7 @@ function [Opt, Q] = xFILTER(D, x, edge_index,iter_num,big_L, A, n,N,gc,lambda,aa
 
 % Parameter Chosen
 % % I
-k=1;
+k=2;
 Lnorm = (D)^(-1/2) * (A' * A) * (D)^(-1/2);
 beta = 96 * k * D * big_L / sum(sum(D));
 eig_Lnorm = eig(Lnorm);
